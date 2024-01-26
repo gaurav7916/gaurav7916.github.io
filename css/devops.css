@@ -1,0 +1,83 @@
+.devops {
+	position: relative;
+	background: linear-gradient(
+		to right,
+		rgba(50, 97, 220, 1) 0%,
+		rgba(62, 162, 217, 1) 50%,
+		rgba(83, 228, 214, 1) 100%
+	);
+	background-clip: padding-box;
+	height: 101vh;
+	overflow: hidden;
+}
+
+#docker {
+	position: absolute;
+	height: 100vh;
+	margin-left: 50vw;
+	transform: translateX(-50%);
+}
+
+#docker-water {
+	position: absolute;
+	bottom: 0px;
+	background-color: rgba(6, 92, 94, 1);
+	height: 45vh;
+	width: 100%;
+}
+
+#containers {
+	position: absolute;
+	width: 20vw;
+	margin-top: 16vh;
+	margin-left: 50vw;
+	transform: translateX(-50%);
+}
+
+.server-wrapper {
+	position: absolute;
+	background-color: lightgrey;
+	width: 8vw;
+	height: 8vw;
+	padding: 1vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 30%;
+}
+.server-wrapper > * {
+	color: darkblue;
+}
+.server-wrapper img {
+	width: 100%;
+}
+
+#server-node {
+	left: -10vw;
+	top: 50vh;
+}
+
+#server-python {
+	right: -10vw;
+	top: 50%;
+}
+
+#devops-integration {
+	width: 100%;
+	position: absolute;
+	bottom: 1vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#devops-integration img {
+	width: 20vw;
+	padding: 1vw;
+}
+
+#jira {
+	margin-top: 10vh;
+	width: 40vw !important;
+}

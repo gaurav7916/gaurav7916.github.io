@@ -1,0 +1,6 @@
+.automation {
+	position: relative;
+	height: 101vh;
+	overflow: hidden;
+	background-image: linear-gradient(180deg, #000033 0%, #010124 100%);
+}

@@ -1,0 +1,34 @@
+.android-elastic {
+	position: relative;
+	background-image: linear-gradient(180deg, rgb(6, 92, 94) 0%, #000033 100%);
+	height: 101vh;
+	overflow: hidden;
+	/* border: 1px solid brown; */
+}
+
+#android-elastic-headings {
+	display: flex;
+	padding: 2%;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-direction: row;
+	/* border: 1px solid black; */
+	margin: 0px 10vw;
+}
+
+#rotated-android {
+	width: 20vw;
+	transform: rotate(45deg);
+	position: absolute;
+	top: 60vh;
+	left: -25vw;
+}
+
+.elk-logos {
+	position: absolute;
+	width: 10vw;
+	top: 45vh;
+	right: 23vw;
+	transform: scale(0);
+	opacity: 0;
+}
