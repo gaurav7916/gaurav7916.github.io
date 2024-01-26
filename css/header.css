@@ -2,7 +2,7 @@ header {
 	position: relative;
 	height: 101vh;
 	overflow: hidden;
-	background-image: #000033;
+	background-image: #8c7c9b;
 	/* border: 1px solid red; */
 }
 
@@ -45,12 +45,13 @@ header {
 
 #intro {
 	text-align: end;
-	padding-right: 10px;
+	padding-right: 25px;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-end;
+	animation: backgroundColorAnimation 5s infinite alternate;
 	/* border: 2px solid grey; */
 }
 
@@ -110,4 +111,13 @@ header {
 		transform: translateY(0%);
 		scale: 1;
 	}
+}
+
+@keyframes backgroundColorAnimation {
+  from {
+    background-color: #aeaed1; /* Starting background color */
+  }
+  to {
+    background-color: #7732ad; /* Ending background color */
+  }
 }
