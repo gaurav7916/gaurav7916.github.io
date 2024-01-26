@@ -2,7 +2,7 @@ header {
 	position: relative;
 	height: 101vh;
 	overflow: hidden;
-	background-image: #8c7c9b;
+	background-image: #181850;
 	/* border: 1px solid red; */
 }
 
@@ -118,6 +118,6 @@ header {
     background-color: #aeaed1; /* Starting background color */
   }
   to {
-    background-color: #7732ad; /* Ending background color */
+    background-color: #000033; /* Ending background color */
   }
 }
