@@ -4,6 +4,7 @@
 	height: 101vh;
 	overflow: hidden;
 	align-items: center;
+	justify-content: center;
 }
 
 .cover-circle {
