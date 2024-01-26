@@ -6,6 +6,7 @@ header {
 	height: 101vh;
 	overflow: hidden;
 /* 	background-image: #181850; */
+	transform: translateX(-50%);
   	background-image: radial-gradient(
 	      ellipse at top,
 	      transparent 0%,
