@@ -1,12 +1,12 @@
 :root {
   --dark-color: #000;
 }
-header {
-	position: relative;
-	height: 101vh;
-	overflow: hidden;
-/*  	background-image: #181850; */
-	transform: translateX(-50%);
+.night{
+       position: fixed;
+       left: 50%;
+       transform: translateX(-50%);
+       width: 100%;
+       height: 100%;
     background-image: radial-gradient(
       ellipse at top,
       transparent 0%,
@@ -39,6 +39,13 @@ header {
       transparent 22px
     ),
     linear-gradient(90deg, rgb(0, 255, 250), rgb(240, 240, 240));
+}
+
+header {
+	position: relative;
+	height: 101vh;
+	overflow: hidden;
+  	background-image: #181850; 
 }
 
 .img-samurai-animate {
