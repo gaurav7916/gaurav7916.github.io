@@ -1,23 +1,24 @@
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 :root{
     --color-bg: linear-gradient(to top,#010329,#000005);
     --color-glass:linear-gradient(to left,#142544,#1a9092);
     --color-water:linear-gradient(to left,#142544,#1b6d6e);
 }
 
-/* body{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items:flex-end;
-} */
-
 .flower{
     position: relative;
 }
 
 .flower__glass{
-    width:20vmin;
-    height: 30vmin;
+    width:18vmin;
+    height: 20vmin;
     background-image: var(--color-glass);
     clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
     opacity: .8;
