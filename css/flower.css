@@ -4,12 +4,12 @@
     --color-water:linear-gradient(to left,#142544,#1b6d6e);
 }
 
-body{
+/* body{
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items:flex-end;
-}
+} */
 
 .flower{
     position: relative;
