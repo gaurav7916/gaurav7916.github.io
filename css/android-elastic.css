@@ -26,8 +26,8 @@
 
 .stack-logos {
 	position: absolute;
-	width: 150px;
-	height: 150px;
+	width: 18vw;
+	height: 18vw
 	top: 45vh;
 	right: 23vw;
 	transform: scale(0);
