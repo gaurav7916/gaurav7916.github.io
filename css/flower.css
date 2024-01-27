@@ -14,7 +14,7 @@
 
 .flower{
     position: relative;
-    transform: scale(0.8);
+    transform: scale(0.6);
 }
 .flower__glass{
     width:20vmin;
