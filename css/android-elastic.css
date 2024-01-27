@@ -24,9 +24,10 @@
 	left: -25vw;
 }
 
-.elk-logos {
+.stack-logos {
 	position: absolute;
-	width: 10vw;
+	width: 150px;
+	height: 150px;
 	top: 45vh;
 	right: 23vw;
 	transform: scale(0);
