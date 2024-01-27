@@ -53,7 +53,7 @@ tweenTimeLineAndroidElastic.add(
 );
 
 tweenTimeLineAndroidElastic.add(
-	TweenLite.to('#elk-elastic', 3, {
+	TweenLite.to('#java', 3, {
 		bezier: elasticScrollPathDesktop,
 		ease: Power0.easeNone,
 	}),
@@ -61,7 +61,7 @@ tweenTimeLineAndroidElastic.add(
 );
 
 tweenTimeLineAndroidElastic.add(
-	TweenLite.to('#elk-logstash', 3, {
+	TweenLite.to('#javascript', 3, {
 		bezier: logstashScrollPathDesktop,
 		ease: Power0.easeNone,
 	}),
@@ -69,7 +69,7 @@ tweenTimeLineAndroidElastic.add(
 );
 
 tweenTimeLineAndroidElastic.add(
-	TweenLite.to('#elk-kibana', 3, {
+	TweenLite.to('#jet', 3, {
 		bezier: kibanaScrollPathDesktop,
 		ease: Power0.easeNone,
 	}),
