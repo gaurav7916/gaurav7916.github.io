@@ -2,16 +2,6 @@
 :root {
   --dark-color: #000;
 }
-
-footer {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #000033;
-}
-
-
 .flowers {
   position: relative;
   transform: scale(0.9);
