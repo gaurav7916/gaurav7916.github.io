@@ -14,23 +14,41 @@
 	border-radius: 100%;
 }
 
+#loading-circle::after {
+  content: attr(data-percent) '🌀';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)rotate(60deg);
+}
+
 .animate-loader {
 	animation: animate-loader 1s linear 0s infinite alternate forwards;
 }
 
 @keyframes animate-loader {
 	0% {
-		border: 8px solid darkred;
+		border: 10px solid darkred;
 		opacity: 1;
 		scale: 2;
 	}
-	50% {
+  	25% {
 		border: 8px solid darkgreen;
 		opacity: 1;
-		scale: 1.5;
+		scale: 1.8;
+	}
+	50% {
+		border: 6px solid white;
+		opacity: 1;
+		scale: 1.7;
+	}
+  	75% {
+		border: 5px solid aqua;
+		opacity: 1;
+		scale: 1.4;
 	}
 	100% {
-		border: 8px solid darkblue;
+		border: 3px solid darkblue;
 		opacity: 1;
 		scale: 1;
 	}
