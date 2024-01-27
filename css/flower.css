@@ -15,10 +15,9 @@
 .flower{
     position: relative;
 }
-
 .flower__glass{
-    width:18vmin;
-    height: 20vmin;
+    width:20vmin;
+    height: 30vmin;
     background-image: var(--color-glass);
     clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
     opacity: .8;
