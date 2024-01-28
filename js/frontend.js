@@ -126,7 +126,6 @@ tweenTimeLineFrontend.add(
 );
 
 const controllerFrontend = new ScrollMagic.Controller();
-
 const sceneFrontend = new ScrollMagic.Scene({
 	triggerElement: '.frontend',
 	duration: 1000,
