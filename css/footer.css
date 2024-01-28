@@ -1,3 +1,10 @@
+footer {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #191a21;
+}	
+	
 @property --border-angle-1 {
 	syntax: "<angle>";
 	inherits: true;
