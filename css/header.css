@@ -1,5 +1,8 @@
 .doodle {
   	background: #261c33;
+	position: absolute;
+  	width: 100%;
+  	height: 150%;
 } 
 
 header {
