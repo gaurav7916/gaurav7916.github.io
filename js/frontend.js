@@ -94,7 +94,7 @@ tweenTimeLineFrontend.add(
 );
 
 tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-aws-cognito', 3, {
+	TweenLite.to('#cover-ADF', 3, {
 		bezier: awsCognitoScrollPathDesktop,
 		ease: Power0.easeNone,
 	}),
@@ -118,7 +118,7 @@ tweenTimeLineFrontend.add(
 );
 
 tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-php', 3, {
+	TweenLite.to('#cover-JS', 3, {
 		bezier: phpScrollPathDesktop,
 		ease: Power0.easeNone,
 	}),
