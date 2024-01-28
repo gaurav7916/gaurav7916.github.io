@@ -1,3 +1,7 @@
+.doodle {
+  background: #261c33;
+}
+
 header {
 	position: relative;
 	height: 101vh;
@@ -117,6 +121,7 @@ header {
     background-color: #aeaed1; /* Starting background color */
   }
   to {
-    background-color: #000033; /* Ending background color */
+    background-color: #261c33;
+   /* #000033;  Ending background color */
   }
 }
