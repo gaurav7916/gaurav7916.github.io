@@ -2,7 +2,7 @@ header {
 	position: relative;
 	height: 101vh;
 	overflow: hidden;
-  	background-image: #181850; 
+   	background-image: #261c33; /* #181850; */
 }
 
 .img-samurai-animate {
