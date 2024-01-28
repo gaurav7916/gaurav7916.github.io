@@ -172,7 +172,6 @@
     height: 2vmin;
 }
 
-
 .flower__leaf{
     position: absolute;
     left: 50%;
@@ -181,10 +180,9 @@
     width: 5vmin;
     height: 14vmin;
     background-image: linear-gradient(to bottom, #ffa085 ,#fa7373, #1a233a 99%);
-
     clip-path: ellipse(50% 50% at 50% 50%);
     transform-origin: center bottom;
-    animation: open-flower 2s 1s backwards;
+    animation: open-flower 3s 2s backwards infinite alternate;
 }
 
 .flower__leaf--1{
@@ -232,18 +230,17 @@
 }
 
 .flower__fall-down--yellow{
-    animation: flower-fall-down-yellow  8s 1.2s linear forwards;
+    animation: flower-fall-down-yellow  8s 1.2s linear forwards infinite;
 }
 
 .flower__fall-down--pink{
-    animation: flower-fall-down-pink  5s 1.2s linear forwards;
+    animation: flower-fall-down-pink  5s 1.2s linear forwards infinite;
 }
 
 .flower__fall-down--purple{
     bottom: 4vmin;
-    animation:flower-fall-down-purple  6s 1.2s linear forwards, flower-falling 6s 7.2s linear infinite;
+    animation:flower-fall-down-purple  6s 1.2s linear forwards infinite, flower-falling 6s 7.2s linear infinite;
 }
-
 
 @keyframes open-flower{
         0%{
