@@ -48,29 +48,27 @@
                             href="https://www.linkedin.com/in/gaurav-gupta-00647b167"> LinkedIn</a>
             </h2>
         </div>
-
-<css-doodle class="doodle"> 
+	<css-doodle class="doodle"> 
 	:doodle {
 		@grid: 1x3 / 100vmax;
-    position: absolute;
 	}
 	@size: 100% 150%;
 	position: absolute;
 	background: @m(100, (
 		linear-gradient(transparent, @p(
-      #FFFDE1@repeat(2, @p([0-9a-f])), 
-      #FB3569@repeat(2, @p([0-9a-f])) 
-    ))
+      		#FFFDE1@repeat(2, @p([0-9a-f])), 
+      		#FB3569@repeat(2, @p([0-9a-f])) 
+    	))
 		@r(0%, 100%) @r(0%, 100%) /
 		@r(1px) @r(23vmin)
 		no-repeat
 	));
-	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
-	@keyframes f {
+	animation: doodles 20s linear calc(-20s / @size() * @i()) infinite;
+	@keyframes doodles {
 		from { transform: translateY(-100%) }
 		to { transform: translateY(100%) }
 	}
-</css-doodle>
+	</css-doodle>
 </header>
     <section class="frontend">
         <div class="cover-circle" id="cover-amplify">
