@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="./css/devops.css">
     <link rel="stylesheet" href="./css/android-elastic.css">
     <link rel="stylesheet" href="./css/automation.css">
-    <link rel="stylesheet" href="https://unpkg.com/css-doodle@1.4.0/css-doodle.css">
     <link rel="icon" href="./gaurav.jpeg" type="image/ico">
 </head>
 
@@ -25,7 +24,7 @@
     <div id="loading-page">
         <div id="loading-circle" class="animate-loader"></div>
     </div>
-    <header>
+<header>
         <img id="img-samurai-animate" class="img-samurai-animate" src="./img/general/gaurav.png"
             alt="Tech Samurai Image" />
         <img id="img-samurai-scroll" class="img-samurai-scroll" src="./img/general/gaurav.png"
@@ -49,34 +48,30 @@
                             href="https://www.linkedin.com/in/gaurav-gupta-00647b167"> LinkedIn</a>
             </h2>
         </div>
-	<css-doodle> 
-		:doodle { @grid: 1x3 / 100vmax;
-	    position: absolute;
-	    top: 0; left: 0;
-	    z-index: 0;
-		}
-	
-		@size: 100% 150%;
-		position: absolute;
-	  
-		background: @m(100, (
-			linear-gradient(transparent, @p(
-	      #FFFDE1@repeat(2, @p([0-9a-f])), 
-	      #FB3569@repeat(2, @p([0-9a-f])) 
-	    ))
-			@r(0%, 100%) @r(0%, 100%) /
-			@r(1px) @r(23vmin)
-			no-repeat
-		));
-	
-		will-change: transform;
-		animation: f 20s linear calc(-20s / @size() * @i()) infinite;
-		@keyframes f {
-			from { transform: translateY(-100%) }
-			to { transform: translateY(100%) }
-		}
-	</css-doodle>
-    </header>
+
+<css-doodle class="doodle"> 
+	:doodle {
+		@grid: 1x3 / 100vmax;
+    position: absolute;
+	}
+	@size: 100% 150%;
+	position: absolute;
+	background: @m(100, (
+		linear-gradient(transparent, @p(
+      #FFFDE1@repeat(2, @p([0-9a-f])), 
+      #FB3569@repeat(2, @p([0-9a-f])) 
+    ))
+		@r(0%, 100%) @r(0%, 100%) /
+		@r(1px) @r(23vmin)
+		no-repeat
+	));
+	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
+	@keyframes f {
+		from { transform: translateY(-100%) }
+		to { transform: translateY(100%) }
+	}
+</css-doodle>
+</header>
     <section class="frontend">
         <div class="cover-circle" id="cover-amplify">
             <img src="./img/frontend/amplify.svg" />
