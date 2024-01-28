@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="./css/android-elastic.css">
     <link rel="stylesheet" href="./css/automation.css">
     <link rel="icon" href="./gaurav.jpeg" type="image/ico">
-    <script src="https://cdn.jsdelivr.net/npm/css-doodle@1.3.1/dist/css-doodle.min.js"></script>
 </head>
 
 <body>
@@ -49,27 +48,6 @@
                             href="https://www.linkedin.com/in/gaurav-gupta-00647b167"> LinkedIn</a>
             </h2>
         </div>
-	<css-doodle class="doodle"> 
-	:doodle {
-		@grid: 1x3 / 100vmax;
-	}
-	@size: 100% 150%;
-	position: absolute;
-	background: @m(100, (
-		linear-gradient(transparent, @p(
-      		#FFFDE1@repeat(2, @p([0-9a-f])), 
-      		#FB3569@repeat(2, @p([0-9a-f])) 
-    	))
-		@r(0%, 100%) @r(0%, 100%) /
-		@r(1px) @r(23vmin)
-		no-repeat
-	));
-	animation: doodles 20s linear calc(-20s / @size() * @i()) infinite;
-	@keyframes doodles {
-		from { transform: translateY(-100%) }
-		to { transform: translateY(100%) }
-	}
-	</css-doodle>
 </header>
     <section class="frontend">
         <div class="cover-circle" id="cover-amplify">
@@ -208,7 +186,11 @@
    
   <footer style="background-image: linear-gradient(180deg, #000033 0%, black 100%);">
        <div class="footer"> 
-            <button data-text="Ending">Shiny Button</button>
+           <button>
+		<div>
+		A beautiful button
+		</div>
+	   </button>
        </div>
       <div class="flower">
         <div class="f-wrapper">
