@@ -11,6 +11,25 @@
 	position: absolute;
 	bottom: -5px;
 	left: 0;
+	animation: waveAnimation 10s linear infinite; 
+}
+
+@keyframes waveAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-50%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    75% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
 
 .cover-boat {
