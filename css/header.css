@@ -86,8 +86,6 @@
   }
 }
 
-
-
 header {
     position: relative;
     height: 101vh;
@@ -99,6 +97,7 @@ header {
 .icons-container {
   display: flex;
   gap: 200px; 
+  margin-bottom: 100px; 
 }
 
 .img-samurai-animate {
