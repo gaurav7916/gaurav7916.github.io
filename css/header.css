@@ -1,115 +1,210 @@
+.pop {
+  width: 25px;
+  height: 25px;
+  background-size: 840px 24px;
+  animation: pop 2.91666666667s steps(34,start) infinite forwards;
+  background-image: url('https://assets.codepen.io/3537853/pop.png');
+}
+
+.cross {
+  width: 25px;
+  height: 25px;
+  background-size: 625px 25px;
+  animation: cross 2.083325s steps(23,start) infinite forwards;
+  background-image: url('https://assets.codepen.io/3537853/cross.png');
+}
+
+.light {
+  width: 25px;
+  height: 25px;
+  background-size: 620px 20px;
+  animation: light 2.58333333333s steps(30,start) infinite forwards;
+  background-image: url('https://assets.codepen.io/3537853/light.png');
+}
+
+.sparkle {
+  width: 35px;
+  height: 35px;
+  background-size: 774px 43px;
+  animation: sparkle 1.5s steps(17,start) infinite forwards;
+  background-image: url('https://assets.codepen.io/3537853/sparkle.png');
+}
+
+
+@keyframes pop {
+  0% {
+    background-position: 0;
+  }
+  
+  40% {
+    background-position: -816px;
+  }
+  
+  to {
+    background-position: -816px;
+  }
+}
+
+@keyframes cross {
+  0% {
+    background-position: 0;
+  }
+
+  40% {
+    background-position: -600px;
+  }
+
+  to {
+    background-position: -600px;
+  }
+}
+
+@keyframes light {
+  0% {
+    background-position: 0;
+  }
+
+  40% {
+    background-position: -600px;
+  }
+
+  to {
+    background-position: -600px;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0;
+  }
+
+  40% {
+    background-position: -731px;
+  }
+
+  to {
+    background-position: -731px;
+  }
+}
+
+
+
 header {
-	position: relative;
-	height: 101vh;
-	overflow: hidden;
-   	background-image: #261c33; /* #181850; */
+    position: relative;
+    height: 101vh;
+    overflow: hidden;
+    background-image: #261c33; 
+    animation: backgroundColorAnimation 5s infinite alternate;
+}
+
+.icons-container {
+  display: flex;
+  gap: 200px; 
 }
 
 .img-samurai-animate {
-	z-index: 2;
-	/* border: 1px solid red; */
-	position: absolute;
-	height: 100vh;
-	top: 0%;
-	left: -30%;
+    z-index: 2;
+    /* border: 1px solid red; */
+    position: absolute;
+    height: 100vh;
+    top: 0%;
+    left: -30%;
 }
 .img-samurai-scroll {
-	z-index: 2;
-	/* border: 1px solid blue; */
-	position: absolute;
-	height: 100vh;
-	top: 0%;
-	left: -30%;
-	transform: translateX(75%);
-	display: none;
+    z-index: 2;
+    /* border: 1px solid blue; */
+    position: absolute;
+    height: 100vh;
+    top: 0%;
+    left: -30%;
+    transform: translateX(75%);
+    display: none;
 }
 
 .img-plane-animate {
-	z-index: 1;
-	/* border: 1px solid red; */
-	position: absolute;
-	width: 10vw;
-	top: 100vh;
-	left: -12vw;
+    z-index: 1;
+    /* border: 1px solid red; */
+    position: absolute;
+    width: 10vw;
+    top: 100vh;
+    left: -12vw;
 }
 .img-plane-scroll {
-	z-index: 1;
-	/* border: 1px solid blue; */
-	position: absolute;
-	width: 10vw;
-	top: 100vh;
-	left: -12vw;
-	display: none;
+    z-index: 1;
+    /* border: 1px solid blue; */
+    position: absolute;
+    width: 10vw;
+    top: 100vh;
+    left: -12vw;
+    display: none;
 }
 
 #intro {
-	text-align: end;
-	padding-right: 35px;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-end;
-	animation: backgroundColorAnimation 5s infinite alternate;
-	/* border: 2px solid grey; */
+    text-align: end;
+    padding-right: 35px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 #intro h1 {
-	font-size: 3rem;
+    font-size: 3rem;
 }
 
 #intro h2 {
-	font-size: 1rem;
-	margin-top: 17px;
+    font-size: 1rem;
+    margin-top: 17px;
 }
 
 #intro .links {
-	text-decoration: none;
-	color: powderblue;
+    text-decoration: none;
+    color: powderblue;
 }
 
 @media (max-width: 850px) {
-	#img-samurai-animate {
-		display: none;
-	}
-	#img-samurai-scroll {
-		display: none;
-	}
-	#img-plane-animate {
-		width: 20vw;
-		left: -5vw;
-	}
-	#img-plane-scroll {
-		width: 20vw;
-		left: -5vw;
-	}
+    #img-samurai-animate {
+        display: none;
+    }
+    #img-samurai-scroll {
+        display: none;
+    }
+    #img-plane-animate {
+        width: 20vw;
+        left: -5vw;
+    }
+    #img-plane-scroll {
+        width: 20vw;
+        left: -5vw;
+    }
 }
 
 .animate-intro {
-	animation: animate-intro 0.5s ease-in-out 0s 1 normal forwards;
+    animation: animate-intro 0.5s ease-in-out 0s 1 normal forwards;
 }
 .animate-samurai {
-	animation: animate-samurai 2s ease 0s 1 normal forwards;
+    animation: animate-samurai 2s ease 0s 1 normal forwards;
 }
 
 @keyframes animate-samurai {
-	0% {
-		transform: translateX(0%);
-	}
-	100% {
-		transform: translateX(75%);
-	}
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(75%);
+    }
 }
 
 @keyframes animate-intro {
-	0% {
-		transform: translateY(-20%);
-		scale: 0;
-	}
-	100% {
-		transform: translateY(0%);
-		scale: 1;
-	}
+    0% {
+        transform: translateY(-20%);
+        scale: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        scale: 1;
+    }
 }
 
 @keyframes backgroundColorAnimation {
@@ -118,6 +213,6 @@ header {
   }
   to {
     background-color: #261c33;
-   /* #000033;  Ending background color */
+   /* #261c33;  Ending background color */
   }
 }
