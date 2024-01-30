@@ -97,6 +97,7 @@ header {
 .icons-container {
   display: flex;
   gap: 200px; 
+  margin-top: -100px; 
 }
 
 .img-samurai-animate {
@@ -144,7 +145,6 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 100px; 
 }
 
 #intro h1 {
