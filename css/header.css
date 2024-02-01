@@ -181,7 +181,7 @@ header {
   background: linear-gradient(to right, #27AE60 0%, white 10%, #0000FF 30%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shine 25s infinite alternate;
+  animation: shine 25s infinite linear;
   animation-fill-mode: forwards;
   font-weight: 900;
   font-size: 20px;
