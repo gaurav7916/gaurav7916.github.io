@@ -177,7 +177,7 @@ header {
 }
 
 .links-shine{
-  background: linear-gradient(to right, grey 0%, white 5%, powderblue 30%);
+  background: linear-gradient(to right, powderblue 0%, white 30%, aqua 20%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 25s infinite forwards;
