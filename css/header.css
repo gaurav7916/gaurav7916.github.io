@@ -177,8 +177,7 @@ header {
 }
 
 .links-shine{
-  transform: translate(-50%,-50%);
-  background: linear-gradient(to right, #27AE60 0%, white 10%, #0000FF 30%);
+  background: linear-gradient(to right, #CB4335 0%, white 5%, #0000FF 30%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 25s infinite forwards;
