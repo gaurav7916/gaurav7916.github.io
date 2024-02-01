@@ -155,8 +155,8 @@ header {
 }
 
 #intro h2 {
-    font-size: 1rem;
-    margin-top: 17px;
+    font-size: 1.2rem;
+    margin-top: 18px;
 }
 
 @media (max-width: 850px) {
