@@ -183,14 +183,13 @@ header {
 
 .links-shine{
   transform: translate(-50%,-50%);
-  color: yellow;
   background: linear-gradient(to right, #4d4d4d 0, white 10%, #4d4d4d 20%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shine 25s infinite linear;
+  animation: shine 25s infinite alternate;
   animation-fill-mode: forwards;
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 900;
+  font-size: 20px;
 }
 
 @keyframes shine{
