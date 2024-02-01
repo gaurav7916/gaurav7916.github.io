@@ -245,7 +245,6 @@ header {
     background-color: #aeaed1; /* Starting background color */
   }
   to {
-    background-color: #261c33;
-   /* #261c33;  Ending background color */
+    background-color: #261c33;  /* Ending background color */
   }
 }
