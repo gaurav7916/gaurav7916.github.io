@@ -159,11 +159,6 @@ header {
     margin-top: 17px;
 }
 
-#intro .links {
-    text-decoration: none;
-    color: powderblue;
-}
-
 @media (max-width: 850px) {
     #img-samurai-animate {
         display: none;
@@ -183,7 +178,7 @@ header {
 
 .links-shine{
   transform: translate(-50%,-50%);
-  background: linear-gradient(to right, #4d4d4d 0, white 10%, #4d4d4d 20%);
+  background: linear-gradient(to right, #27AE60 0%, white 10%, #0000FF 30%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 25s infinite alternate;
