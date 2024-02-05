@@ -15,12 +15,13 @@
 }
 
 #loading-circle::after {
-  content: attr(data-percent) '🌀';
+  content: url('./img/general/react.gif') attr(data-percent);
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)rotate(60deg);
+  transform: translate(-50%, -50%) rotate(60deg);
 }
+
 
 .animate-loader {
 	animation: animate-loader 1s linear 0s infinite alternate forwards;
