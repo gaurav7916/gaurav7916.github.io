@@ -50,6 +50,11 @@ button:hover::after {
   background-image: linear-gradient(to top, rgb(44, 44, 44), #252731);
 }
 
+footer .h6{
+  bottom: 0;
+  left: 50%;
+}  
+
 @keyframes button-animation {
   0% {
     left: 0;
