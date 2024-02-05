@@ -53,8 +53,6 @@ button:hover::after {
 h6{
   bottom: 0;
   left: 50%;
-  color:white;
-  font-family: "Times";
 }  
 
 @keyframes button-animation {
