@@ -1,11 +1,3 @@
-*,
-*::after,
-*::before{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 :root{
     --color-bg: linear-gradient(to top,#010329,#000005);
     --color-glass:linear-gradient(to left,#142544,#1a9092);
