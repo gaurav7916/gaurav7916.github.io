@@ -56,27 +56,14 @@ footer {
 	to { --border-angle-3: 540deg; }
 }
 
-body {
-	background: var(--background);
-	color: var(--foreground);
-	min-height: 100dvh;
-	display: grid;
-	place-content: center;
-	margin: 0;
-	font-family: "Aspekta";
-}
-
 button {
 	--border-angle-1: 0deg;
 	--border-angle-2: 90deg;
 	--border-angle-3: 180deg;
 	color: inherit;
 	font-size: calc(0.8rem + 4vmin);
-	font-family: inherit;
 	border: 0;
 	padding: var(--border-size);
-	display: flex;
-	width: max-content;
 	border-radius: var(--border-radius);
 	background-color: transparent;
 	background-image: conic-gradient(
@@ -101,7 +88,7 @@ button {
 			transparent
 		);
 	animation: 
-		rotateBackground 3s linear infinite,
+		rotateBackground 5s linear infinite,
 		rotateBackground2 8s linear infinite,
 		rotateBackground3 13s linear infinite;
 }
@@ -109,7 +96,7 @@ button {
 /* Change this background to transparent to see how the gradient works */
 button div {
 	background: var(--background); 
-	padding: 0.2em 1.2em;
+	padding: 0.2em 1em;
 	border-radius: calc(var(--border-radius) - var(--border-size));
 	color: var(--foreground);
 }
