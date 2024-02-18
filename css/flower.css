@@ -5,7 +5,7 @@
 }
 
 .flower{
-    margin-bottom: 10px;
+    margin-bottom: -10px;
     position: relative;
     transform: scale(0.5);
 }
