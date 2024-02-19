@@ -51,6 +51,7 @@ button {
 	--border-angle-3: 180deg;
 	position: relative;
 	font-size: 1.8rem;
+	scale:0.8;
 	border: 0;
 	padding: 0.15rem 0.15rem;
 	border-radius: 1rem;
