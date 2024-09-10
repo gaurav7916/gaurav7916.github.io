@@ -7,6 +7,24 @@
 	justify-content: center;
 }
 
+.left-side {
+	display: flex;
+	flex-direction: column;
+	/* Stacking circles vertically */
+	flex: 1;
+	/* Take equal width */
+	justify-content: center;
+	align-items: center;
+}
+
+.right-side {
+	margin-top: 7rem;
+	margin-right:20rem;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+}
+
 .cover-circle {
 	width: 125px;
 	height: 125px;
@@ -94,6 +112,30 @@
 #cover-JS img {
 	width: 80px;
 	height: 50px;
+}
+
+
+.project-shine {
+	background: linear-gradient(to right, yellow 0%, white 30%, aqua 20%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: shine 15s infinite forwards;
+	font-size: 35px;
+	text-shadow: 10px 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes shine {
+	0% {
+		background-position: 0;
+	}
+
+	60% {
+		background-position: 180px;
+	}
+
+	100% {
+		background-position: 180px;
+	}
 }
 
 /* @media (max-width: 850px) {
