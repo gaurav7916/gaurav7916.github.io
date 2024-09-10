@@ -114,6 +114,9 @@
 	height: 50px;
 }
 
+h3 :hover {
+	text-shadow: 10px 3px 4px green;
+}
 
 .project-shine {
 	background: linear-gradient(to right, yellow 0%, white 30%, aqua 20%);
