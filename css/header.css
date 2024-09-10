@@ -1,3 +1,9 @@
+#demo-canvas {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .pop {
   margin-top: -150px;
   width: 27px;
@@ -183,6 +189,8 @@ header {
   animation: shine 25s infinite forwards;
   font-weight: 949;
   font-size: 18px;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes shine{
