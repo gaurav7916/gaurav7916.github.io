@@ -93,7 +93,7 @@ header {
     height: 101vh;
     overflow: hidden;
     background-image: #261c33; 
-    animation: backgroundColorAnimation 5s infinite alternate;
+    animation: backgroundColorAnimation 7s infinite alternate;
 }
 
 .icons-container {
