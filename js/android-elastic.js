@@ -1,7 +1,7 @@
 const androidScrollPathDesktop = {
 	curviness: 0,
 	autoRotate: false,
-	values: [{ x: 15 * widthPercent, y: -30 * heightPercent }],
+	values: [{ x: 20 * widthPercent, y: -25 * heightPercent }],
 };
 
 const elasticScrollPathDesktop = {
