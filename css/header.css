@@ -6,8 +6,8 @@
 
 .pop {
   margin-top: -150px;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-size: 840px 24px;
   animation: pop 2.91666666667s steps(34,start) infinite forwards;
   background-image: url('https://assets.codepen.io/3537853/pop.png');
@@ -15,8 +15,8 @@
 
 .cross {
   margin-top: -150px;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-size: 625px 25px;
   animation: cross 2.083325s steps(23,start) infinite forwards;
   background-image: url('https://assets.codepen.io/3537853/cross.png');
@@ -24,8 +24,8 @@
 
 .light {
   margin-top: -150px;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-size: 620px 20px;
   animation: light 2.58333333333s steps(30,start) infinite forwards;
   background-image: url('https://assets.codepen.io/3537853/light.png');
@@ -33,8 +33,8 @@
 
 .sparkle {
   margin-top: -150px;
-  width: 42px;
-  height: 42px;
+  width: 37px;
+  height: 37px;
   background-size: 774px 43px;
   animation: sparkle 1.5s steps(17,start) infinite forwards;
   background-image: url('https://assets.codepen.io/3537853/sparkle.png');
