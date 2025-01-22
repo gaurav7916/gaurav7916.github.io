@@ -156,12 +156,18 @@ header {
 @-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
 
 h1 { 
-	border-right: .1em solid black;
-	width: calc(0.55em * 14); 
-	width: 14ch;
-	white-space: nowrap;
-	overflow: hidden;
-	-webkit-animation: typing 5s steps(14, end), blink-caret .5s step-end infinite alternate;
+    border-right: .1em solid black;
+    width: calc(0.55em * 14); 
+    width: 14ch;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-animation: typing 5s steps(14, end), blink-caret .5s step-end infinite alternate;
+}
+
+.clock {
+  font-size: 18px;
+  font-family: Orbitron;
+  letter-spacing: 3px;
 }
 
 #intro h2 {
