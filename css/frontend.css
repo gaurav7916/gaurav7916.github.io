@@ -15,8 +15,8 @@
 }
 
 .right-side {
-	margin-top: 1rem;
-	margin-right:7rem;
+	margin-top: 7rem;
+	margin-right:10rem;
 	display: flex;
 	justify-content: right;
 	align-items: center;
