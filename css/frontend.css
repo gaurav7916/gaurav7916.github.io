@@ -143,3 +143,30 @@
 		background-position: 180px;
 	}
 }
+
+.middle h2 {
+	font-size: 65px;
+	color: #00000000;
+	background-color: yellow;
+	background-image: url(https://res.cloudinary.com/drcrre4xg/image/upload/v1571101002/water_zvupjx.png);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: colorCycle 10s infinite, water 10s infinite;
+}
+
+@keyframes colorCycle {
+	0% { background-color: yellow; }
+	25% { background-color: orange; }
+	50% { background-color: purple; }
+	75% { background-color: maroon; }
+	100% { background-color: black; }
+}
+
+@keyframes water {
+	from{
+		background-position: left 0 top 0;
+	}
+	to{
+		background-position: left 1000px top 0;
+	}
+}
