@@ -24,6 +24,13 @@
 	left: -25vw;
 }
 
+.nlp {
+	width: 40vw;
+	position: absolute;
+	top: 15vh;
+	left: 14vw;
+}
+
 .stack-logos {
 	position: absolute;
 	width: 20vw;
