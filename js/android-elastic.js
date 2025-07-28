@@ -93,7 +93,7 @@ var neural = document.getElementById("neural");
 
 // Set fixed width and height (adjust as needed)
 var w = neural.width = 600,
-    h = neural.height = 400,
+    h = neural.height = 500,
     ctx = neural.getContext('2d'),
 
     opts = {
@@ -124,7 +124,7 @@ var w = neural.width = 600,
         endColor: 'hsla(160,20%,light%,alp)',
         dataColor: 'hsla(40,80%,light%,alp)',
 
-        wireframeWidth: .1,
+        wireframeWidth: 0.7,
         wireframeColor: '#88f',
 
         depth: 250,
@@ -272,7 +272,7 @@ Connection.rootStep = function () {
 Connection.prototype.draw = function () {
     ctx.fillStyle = this.screen.color;
     ctx.beginPath();
-    ctx.arc(this.screen.x, this.screen.y, this.screen.scale * this.size, 0, Tau);
+    ctx.arc(this.screen.x, this.screen.y, this.screen.scale * this.size*1.5, 0, Tau);
     ctx.fill();
 };
 
