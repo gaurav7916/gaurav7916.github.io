@@ -27,8 +27,8 @@
 .nlp {
 	width: 38vw;
 	position: absolute;
-	top: 7vh;
-	left: 14vw;
+	top: 8vh;
+	left: 12vw;
 }
 
 .stack-logos {
@@ -41,8 +41,9 @@
 }
 
 #neural {
-	width: 27vw;
+	width: 30vw;
 	position: absolute;
-        top: 50vh;
-	left: 18vw;
+	top: 51vh;
+	left: 17vw;
 }
+
