@@ -27,7 +27,7 @@
 .nlp {
 	width: 38vw;
 	position: absolute;
-	top: 12vh;
+	top: 7vh;
 	left: 14vw;
 }
 
@@ -41,8 +41,8 @@
 }
 
 #neural {
-	width: 30vw;
+	width: 27vw;
 	position: absolute;
-	top: 48vh;
+        top: 50vh;
 	left: 18vw;
 }
