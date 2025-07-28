@@ -25,9 +25,9 @@
 }
 
 .nlp {
-	width: 40vw;
+	width: 38vw;
 	position: absolute;
-	top: 15vh;
+	top: 12vh;
 	left: 14vw;
 }
 
@@ -38,4 +38,11 @@
 	right: 23vw;
 	transform: scale(0);
 	opacity: 0;
+}
+
+#neural {
+	width: 30vw;
+	position: absolute;
+	top: 48vh;
+	left: 18vw;
 }
