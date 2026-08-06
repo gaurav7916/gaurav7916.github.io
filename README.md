@@ -1,4 +1,4 @@
-**Port-folio website**
+**Portfolio website**
 
 https://gaurav7916.github.io
 
