@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/loader.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/header-extras.css">
     <link rel="stylesheet" href="./css/frontend.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/flower.css">
@@ -60,7 +61,31 @@
                 <a target="_blank" class="links-shine"
                             href="https://www.linkedin.com/in/gaurav-gupta-00647b167"> LinkedIn</a>
             </h2>
+
         </div>
+
+        <div class="hx-actions hx-actions--top">
+            <button type="button" class="hx-btn hx-btn--primary" data-hx-scroll=".frontend">
+                <span class="hx-btn__inner">
+                    View Projects
+                    <span class="hx-btn__count" data-hx-project-count>7</span>
+                </span>
+            </button>
+            <a class="hx-btn" href="mailto:gauravgupta7916@gmail.com">
+                <span class="hx-btn__inner">
+                    <svg class="hx-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"></rect>
+                        <path d="M3 6.5l9 6.5 9-6.5"></path>
+                    </svg>
+                    Get in touch
+                </span>
+            </a>
+        </div>
+
+        <button type="button" class="hx-scroll-cue" data-hx-scroll=".frontend" aria-label="Scroll to explore">
+            <span class="hx-scroll-cue__label">Scroll to explore</span>
+            <span class="hx-scroll-cue__mouse"><span class="hx-scroll-cue__wheel"></span></span>
+        </button>
     </canvas>
 </header>
     <section class="frontend">
@@ -231,6 +256,20 @@
         <img class="stack-logos" id="jet" src="./img/elastic/react_icon.png" />
         <img class="nlp" id="nlp" src="./img/android/nlp.gif"/>
         <canvas id="neural"></canvas>
+        <div class="hx-stack hx-stack--section" aria-label="Core tech stack">
+            <span class="hx-stack__title"><b>Core Stack</b></span>
+            <span class="hx-chip">Python, R</span>
+            <span class="hx-chip">Java, C++</span>
+            <span class="hx-chip">PyTorch, TensorFlow</span>
+            <span class="hx-chip">AI/ML, Deep Learning</span>
+            <span class="hx-chip">NLP, RAG, CNN</span>
+            <span class="hx-chip">JavaScript, Next.js</span>
+            <span class="hx-chip">React</span>
+            <span class="hx-chip">TypeScript</span>
+            <span class="hx-chip">AWS, Docker, CI/CD</span>
+            <span class="hx-chip">SQL/PLSQL</span>
+            <span class="hx-chip">LLMs, FastAPI</span>
+        </div>
     </section>
   <footer style="background-image: linear-gradient(180deg, #000033 0%, black 100%);">
       <div class="flower">
@@ -323,6 +362,7 @@
     <script src="./js/intro.js"></script>
     <script src="./js/frontend.js"></script>
     <script src="./js/header.js"></script>
+    <script src="./js/header-extras.js"></script>
     <script src="./js/backend.js"></script>
     <script src="./js/devops.js"></script>
     <script src="./js/android-elastic.js"></script>
