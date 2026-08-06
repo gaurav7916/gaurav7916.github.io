@@ -93,7 +93,7 @@ header {
     height: 101vh;
     overflow: hidden;
     background-image: #261c33; 
-    animation: backgroundColorAnimation 7s infinite alternate;
+    animation: backgroundColorAnimation 9s infinite alternate;
 }
 
 .icons-container {
@@ -244,7 +244,7 @@ h1 {
 
 @keyframes backgroundColorAnimation {
   from {
-    background-color: #aeaed1; /* Starting background color */
+    background-color: #5c5c85; /* Starting background color */
   }
   to {
     background-color: #261c33;  /* Ending background color */
