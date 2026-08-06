@@ -1,0 +1,373 @@
+/* Header enhancements — additive only.
+   Every selector here is new (hx-* prefixed); no existing rule is overridden. */
+
+/* ---------- Tech stack chips ---------- */
+.hx-stack {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 9px;
+    max-width: 34rem;
+    margin-top: 26px;
+}
+
+/* Chip cloud placed in the Tech Stack section, centred along the bottom. */
+.hx-stack--section {
+    position: absolute;
+    left: 50%;
+    bottom: 5vh;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    max-width: 78vw;
+    margin-top: 0;
+    gap: 10px;
+    z-index: 5;
+}
+
+.hx-stack--section .hx-stack__title {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.hx-stack__title {
+    width: 100%;
+    font-family: Montserrat, Calibri, sans-serif;
+    font-size: 0.66rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(240, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(20, 14, 32, 0.65);
+    margin-bottom: 2px;
+}
+
+.hx-chip {
+    font-family: Montserrat, Calibri, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    color: #eafcff;
+    padding: 7px 13px;
+    border: 1px solid rgba(175, 238, 238, 0.38);
+    border-radius: 999px;
+    /* Dark translucent pill stays legible through the header's
+       light -> dark background animation. */
+    background: rgba(31, 22, 46, 0.45);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    animation: hx-fade-up 0.55s ease both;
+    transition: transform 0.25s ease, border-color 0.25s ease,
+        background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hx-chip:hover {
+    transform: translateY(-3px);
+    border-color: aqua;
+    background: rgba(0, 255, 255, 0.12);
+    box-shadow: 0 6px 18px rgba(0, 255, 255, 0.18);
+}
+
+.hx-chip:nth-child(2) { animation-delay: 1.05s; }
+.hx-chip:nth-child(3) { animation-delay: 1.13s; }
+.hx-chip:nth-child(4) { animation-delay: 1.21s; }
+.hx-chip:nth-child(5) { animation-delay: 1.29s; }
+.hx-chip:nth-child(6) { animation-delay: 1.37s; }
+.hx-chip:nth-child(7) { animation-delay: 1.45s; }
+.hx-chip:nth-child(8) { animation-delay: 1.53s; }
+.hx-chip:nth-child(9) { animation-delay: 1.61s; }
+.hx-chip:nth-child(10) { animation-delay: 1.69s; }
+.hx-chip:nth-child(11) { animation-delay: 1.77s; }
+.hx-chip:nth-child(12) { animation-delay: 1.85s; }
+
+/* ---------- Call to action buttons ---------- */
+.hx-actions {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    animation: hx-fade-up 0.6s ease 1.95s both;
+}
+
+/* Pinned to the top-right corner of the header. */
+.hx-actions--top {
+    position: absolute;
+    top: 26px;
+    right: 45px; /* lines up with #intro's right padding */
+    z-index: 4;
+    margin-top: 0;
+    animation-delay: 1.2s;
+}
+
+/* Same glowing animated border as the footer's "The End" button:
+   three rotating conic-gradients on the shell, solid fill on the inner span.
+   The --border-angle-* properties, keyframes and --bright-* colors all come
+   from css/footer.css, which is loaded on the same page. */
+.hx-btn {
+    --border-angle-1: 0deg;
+    --border-angle-2: 90deg;
+    --border-angle-3: 180deg;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    scale: 1; /* opt out of the global `button { scale: 0.8 }` */
+    border: 0;
+    padding: 2px;
+    border-radius: 999px;
+    background-color: transparent;
+    background-image: conic-gradient(from var(--border-angle-1) at 10% 15%,
+            transparent,
+            var(--bright-blue) 10%,
+            transparent 30%,
+            transparent),
+        conic-gradient(from var(--border-angle-2) at 70% 60%,
+            transparent,
+            var(--bright-green) 10%,
+            transparent 60%,
+            transparent),
+        conic-gradient(from var(--border-angle-3) at 50% 20%,
+            transparent,
+            var(--bright-red) 10%,
+            transparent 50%,
+            transparent);
+    animation: rotateBackground 4s linear infinite,
+        rotateBackground2 8s linear infinite,
+        rotateBackground3 12s linear infinite;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hx-btn__inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: Montserrat, Calibri, sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.6px;
+    padding: 10px 19px;
+    border-radius: inherit;
+    background: var(--background);
+    color: #eafcff;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.hx-btn:hover,
+.hx-btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 255, 255, 0.22);
+    outline: none;
+}
+
+.hx-btn:hover .hx-btn__inner,
+.hx-btn:focus-visible .hx-btn__inner {
+    background: linear-gradient(to top, rgb(44, 44, 44), #252731);
+}
+
+.hx-btn--primary .hx-btn__inner {
+    background: linear-gradient(120deg, powderblue 0%, aqua 100%);
+    color: #241a35;
+    font-weight: 700;
+}
+
+.hx-btn--primary:hover .hx-btn__inner,
+.hx-btn--primary:focus-visible .hx-btn__inner {
+    background: linear-gradient(120deg, aqua 0%, powderblue 100%);
+}
+
+.hx-btn--primary:hover,
+.hx-btn--primary:focus-visible {
+    box-shadow: 0 10px 28px rgba(0, 255, 255, 0.32);
+}
+
+.hx-btn__count {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: inherit;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgba(36, 26, 53, 0.18);
+}
+
+.hx-btn:not(.hx-btn--primary) .hx-btn__count {
+    background: rgba(0, 255, 255, 0.14);
+}
+
+/* The icon's shapes also match the global `* { color: yellow }`, which is what
+   currentColor resolves against — so the color has to be reset on them too. */
+.hx-btn__icon,
+.hx-btn__icon * {
+    color: inherit;
+}
+
+.hx-btn__icon {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ---------- Scroll cue ---------- */
+.hx-scroll-cue {
+    position: absolute;
+    left: 62%; /* clear of the samurai artwork on wide screens */
+    bottom: 24px;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 10px;
+    border: none;
+    background: none;
+    scale: 1; /* opt out of the global `button { scale: 0.8 }` */
+    cursor: pointer;
+    opacity: 0;
+    animation: hx-cue-in 0.8s ease 2.3s forwards;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hx-scroll-cue.hx-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(14px);
+}
+
+.hx-scroll-cue__label {
+    font-family: Montserrat, Calibri, sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(240, 255, 255, 0.92);
+    text-shadow: 0 1px 3px rgba(20, 14, 32, 0.7);
+}
+
+.hx-scroll-cue__mouse {
+    position: relative;
+    width: 23px;
+    height: 36px;
+    border: 2px solid rgba(175, 238, 238, 0.6);
+    border-radius: 12px;
+}
+
+.hx-scroll-cue__wheel {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    width: 3px;
+    height: 7px;
+    margin-left: -1.5px;
+    border-radius: 2px;
+    background: aqua;
+    animation: hx-wheel 1.7s ease-in-out infinite;
+}
+
+.hx-scroll-cue:hover .hx-scroll-cue__mouse,
+.hx-scroll-cue:focus-visible .hx-scroll-cue__mouse {
+    border-color: aqua;
+    box-shadow: 0 0 16px rgba(0, 255, 255, 0.35);
+}
+
+.hx-scroll-cue:focus-visible {
+    outline: none;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes hx-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hx-cue-in {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes hx-wheel {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(13px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 850px) {
+    .hx-stack {
+        max-width: 100%;
+        gap: 7px;
+        margin-top: 20px;
+    }
+    .hx-chip {
+        font-size: 0.68rem;
+        padding: 6px 11px;
+    }
+    .hx-actions {
+        margin-top: 22px;
+        gap: 10px;
+    }
+    .hx-actions--top {
+        top: 16px;
+        right: 18px;
+        margin-top: 0;
+    }
+    .hx-stack--section {
+        max-width: 90vw;
+        bottom: 4vh;
+        gap: 7px;
+    }
+    .hx-btn {
+        font-size: 0.75rem;
+        padding: 10px 16px;
+    }
+    .hx-scroll-cue {
+        left: 50%;
+    }
+    .hx-scroll-cue__label {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hx-chip,
+    .hx-actions,
+    .hx-actions--top,
+    .hx-scroll-cue,
+    .hx-btn {
+        /* the button keeps its glow, it just stops rotating */
+        animation: none;
+        opacity: 1;
+    }
+    .hx-scroll-cue__wheel {
+        animation: none;
+    }
+}
