@@ -1,5 +1,43 @@
-/* Header enhancements — additive only.
-   Every selector here is new (hx-* prefixed); no existing rule is overridden. */
+#intro h1 {
+    color: #ffd94a; /* fallback where background-clip: text is unsupported */
+    background-image: linear-gradient(100deg,
+            #d9a417 0%,
+            #ffd94a 30%,
+            #fffbe6 46%,
+            #ffd94a 62%,
+            #d9a417 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-right-color: rgba(255, 226, 140, 0.9); 
+    filter: drop-shadow(0 0 16px rgba(255, 205, 70, 0.55))
+        drop-shadow(0 2px 3px rgba(24, 17, 38, 0.55));
+    animation: hx-typing 5s steps(14, end),
+        hx-blink-caret 0.5s step-end infinite alternate,
+        hx-shine 6s linear infinite;
+}
+
+@keyframes hx-typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes hx-blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes hx-shine {
+    from {
+        background-position: 0% 50%;
+    }
+    to {
+        background-position: 220% 50%;
+    }
+}
 
 /* ---------- Tech stack chips ---------- */
 .hx-stack {
@@ -13,7 +51,6 @@
     margin-top: 26px;
 }
 
-/* Chip cloud placed in the Tech Stack section, centred along the bottom. */
 .hx-stack--section {
     position: absolute;
     left: 50%;
@@ -105,10 +142,6 @@
     animation-delay: 1.2s;
 }
 
-/* Same glowing animated border as the footer's "The End" button:
-   three rotating conic-gradients on the shell, solid fill on the inner span.
-   The --border-angle-* properties, keyframes and --bright-* colors all come
-   from css/footer.css, which is loaded on the same page. */
 .hx-btn {
     --border-angle-1: 0deg;
     --border-angle-2: 90deg;
@@ -199,8 +232,7 @@
     background: rgba(0, 255, 255, 0.14);
 }
 
-/* The icon's shapes also match the global `* { color: yellow }`, which is what
-   currentColor resolves against — so the color has to be reset on them too. */
+
 .hx-btn__icon,
 .hx-btn__icon * {
     color: inherit;
