@@ -1,69 +1,105 @@
-const tweenTimeLineBackend = new TimelineLite();
+/* MOBILE SUPPORT — ADDED */
+let tweenTimeLineBackend;
+let boatScrollPathDesktop;
+let controllerBackend;
+let sceneBackend;
 
-const boatScrollPathDesktop = {
-	curviness: 1.0,
-	autoRotate: true,
-	values: [
-		{ x: 10 * widthPercent, y: 1 * heightPercent },
-		{ x: 20 * widthPercent, y: 2 * heightPercent },
-		{ x: 40 * widthPercent, y: 4 * heightPercent },
-		{ x: 50 * widthPercent, y: 2 * heightPercent },
-		{ x: 55 * widthPercent, y: 1.5 * heightPercent },
-		{ x: 60 * widthPercent, y: 0 * heightPercent },
-		{ x: 70 * widthPercent, y: 0 * heightPercent },
-		{ x: 75 * widthPercent, y: 0.5 * heightPercent },
-		{ x: 80 * widthPercent, y: 1 * heightPercent },
-		{ x: 85 * widthPercent, y: 2 * heightPercent },
-		{ x: 90 * widthPercent, y: 1.75 * heightPercent },
-		{ x: 100 * widthPercent, y: 0 * heightPercent },
-		{ x: 110 * widthPercent, y: 1 * heightPercent },
-		{ x: 125 * widthPercent, y: 1.5 * heightPercent },
-		{ x: 130 * widthPercent, y: 1.5 * heightPercent },
-	],
+const computeBackendPaths = () => {
+	boatScrollPathDesktop = {
+		curviness: 1.0,
+		autoRotate: true,
+		values: [
+			{ x: 10 * widthPercent, y: 1 * heightPercent },
+			{ x: 20 * widthPercent, y: 2 * heightPercent },
+			{ x: 40 * widthPercent, y: 4 * heightPercent },
+			{ x: 50 * widthPercent, y: 2 * heightPercent },
+			{ x: 55 * widthPercent, y: 1.5 * heightPercent },
+			{ x: 60 * widthPercent, y: 0 * heightPercent },
+			{ x: 70 * widthPercent, y: 0 * heightPercent },
+			{ x: 75 * widthPercent, y: 0.5 * heightPercent },
+			{ x: 80 * widthPercent, y: 1 * heightPercent },
+			{ x: 85 * widthPercent, y: 2 * heightPercent },
+			{ x: 90 * widthPercent, y: 1.75 * heightPercent },
+			{ x: 100 * widthPercent, y: 0 * heightPercent },
+			{ x: 110 * widthPercent, y: 1 * heightPercent },
+			{ x: 125 * widthPercent, y: 1.5 * heightPercent },
+			{ x: 130 * widthPercent, y: 1.5 * heightPercent },
+		],
+	};
 };
 
-tweenTimeLineBackend.add(
-	TweenLite.to('#boat-node', 3, {
-		bezier: boatScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
+const buildBackendScene = () => {
+	/* MOBILE SUPPORT — ADDED — see the note in js/frontend.js: keep the scene and
+	   its pin, rewind and replace only the timeline. */
+	const previousBackend = tweenTimeLineBackend;
+	if (sceneBackend && previousBackend) {
+		sceneBackend.removeTween(true);
+		previousBackend.kill();
+	}
 
-tweenTimeLineBackend.add(
-	TweenLite.to('#boat-python', 3, {
-		bezier: boatScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	1
-);
+	tweenTimeLineBackend = new TimelineLite();
 
-tweenTimeLineBackend.add(
-	TweenLite.to('#boat-nosql', 3, {
-		bezier: boatScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	2
-);
+	tweenTimeLineBackend.add(
+		TweenLite.to('#boat-node', 3, {
+			bezier: boatScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
 
-tweenTimeLineBackend.add(
-	TweenLite.to('#boat-sql', 3, {
-		bezier: boatScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	3
-);
+	tweenTimeLineBackend.add(
+		TweenLite.to('#boat-python', 3, {
+			bezier: boatScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		1
+	);
 
-const controllerBackend = new ScrollMagic.Controller();
+	tweenTimeLineBackend.add(
+		TweenLite.to('#boat-nosql', 3, {
+			bezier: boatScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		2
+	);
 
-const sceneBackend = new ScrollMagic.Scene({
-	triggerElement: '.backend',
-	duration: 1000,
-	triggerHook: '0',
-})
-	.setTween(tweenTimeLineBackend)
-	.setPin('.backend')
-	.addTo(controllerBackend);
+	tweenTimeLineBackend.add(
+		TweenLite.to('#boat-sql', 3, {
+			bezier: boatScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		3
+	);
+
+	/* MOBILE SUPPORT — ADDED */
+	if (sceneBackend) {
+		sceneBackend.setTween(tweenTimeLineBackend);
+		sceneBackend.refresh();
+		return;
+	}
+
+	controllerBackend = new ScrollMagic.Controller();
+
+	sceneBackend = new ScrollMagic.Scene({
+		triggerElement: '.backend',
+		duration: 1000,
+		triggerHook: '0',
+	})
+		.setTween(tweenTimeLineBackend)
+		.setPin('.backend')
+		.addTo(controllerBackend);
+};
+
+computeBackendPaths();
+buildBackendScene();
+
+/* MOBILE SUPPORT — ADDED */
+if (window.HXRebuild) {
+	window.HXRebuild.register('backend', () => {
+		computeBackendPaths();
+		buildBackendScene();
+	});
+}
 
 
 var HEIGHT,WIDTH;
