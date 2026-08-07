@@ -1,139 +1,189 @@
-const amplifyScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [{ x: 50 * widthPercent, y: 25 * heightPercent }],
+/* MOBILE SUPPORT — ADDED */
+let amplifyScrollPathDesktop;
+let npmPackageScrollPathDesktop;
+let phpScrollPathDesktop;
+let firebaseCloudFnsScrollPathDesktop;
+let firebaseAuthScrollPathDesktop;
+let awsCognitoScrollPathDesktop;
+let reactScrollPathDesktop;
+let serverlessScrollPathDesktop;
+
+const computeFrontendPaths = () => {
+	amplifyScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [{ x: 50 * widthPercent, y: 25 * heightPercent }],
+	};
+
+	npmPackageScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [
+			{ x: -3 * widthPercent, y: -5 * heightPercent },
+			{ x: 35 * widthPercent, y: -15 * heightPercent },
+		],
+	};
+
+	phpScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [
+			{ x: -10 * widthPercent, y: 5 * heightPercent },
+			{ x: 20 * widthPercent, y: -35 * heightPercent },
+		],
+	};
+
+	firebaseCloudFnsScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [
+			{ x: -15 * widthPercent, y: 5 * heightPercent },
+			{ x: 0 * widthPercent, y: -55 * heightPercent },
+		],
+	};
+	firebaseAuthScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [
+			{ x: 10 * widthPercent, y: 5 * heightPercent },
+			{ x: -20 * widthPercent, y: -25 * heightPercent },
+		],
+	};
+
+	awsCognitoScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [{ x: -45 * widthPercent, y: -25 * heightPercent }],
+	};
+
+	reactScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [{ x: -20 * widthPercent, y: 95 * heightPercent }],
+	};
+
+	serverlessScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [
+			{ x: -10 * widthPercent, y: 0 * heightPercent },
+			{ x: 0 * widthPercent, y: 66 * heightPercent },
+		],
+	};
 };
 
-const npmPackageScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [
-		{ x: -3 * widthPercent, y: -5 * heightPercent },
-		{ x: 35 * widthPercent, y: -15 * heightPercent },
-	],
-};
+let tweenTimeLineFrontend;
+let controllerFrontend;
+let sceneFrontend;
 
-const phpScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [
-		{ x: -10 * widthPercent, y: 5 * heightPercent },
-		{ x: 20 * widthPercent, y: -35 * heightPercent },
-	],
-};
+const buildFrontendScene = () => {
+	/* MOBILE SUPPORT — ADDED
+	   On a rebuild, rewind and discard the old timeline but KEEP the scene, the
+	   controller and the pin. Calling destroy(true) + setPin() again re-wraps the
+	   section in a fresh .scrollmagic-pin-spacer, and that DOM churn re-triggers
+	   unrelated CSS animations elsewhere on the page (it replayed the header's
+	   typing effect) for no benefit. removeTween(true) rewinds the tween to
+	   progress 0 first, so the new timeline records the same start values it
+	   would on a fresh load. ScrollMagic refreshes the pin's own dimensions. */
+	const previousFrontend = tweenTimeLineFrontend;
+	if (sceneFrontend && previousFrontend) {
+		sceneFrontend.removeTween(true);
+		previousFrontend.kill();
+	}
 
-const firebaseCloudFnsScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [
-		{ x: -15 * widthPercent, y: 5 * heightPercent },
-		{ x: 0 * widthPercent, y: -55 * heightPercent },
-	],
-};
-const firebaseAuthScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [
-		{ x: 10 * widthPercent, y: 5 * heightPercent },
-		{ x: -20 * widthPercent, y: -25 * heightPercent },
-	],
-};
+	tweenTimeLineFrontend = new TimelineLite();
 
-const awsCognitoScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [{ x: -45 * widthPercent, y: -25 * heightPercent }],
-};
+	tweenTimeLineFrontend.add(
+		TweenLite.to('#cover-amplify', 3, {
+			bezier: amplifyScrollPathDesktop,
+			ease: Power0.easeNone,
+		})
+	);
 
-const reactScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [{ x: -20 * widthPercent, y: 95 * heightPercent }],
-};
+	tweenTimeLineFrontend.add(
+		TweenLite.to('#cover-react', 3, {
+			bezier: reactScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
 
-const serverlessScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [
-		{ x: -10 * widthPercent, y: 0 * heightPercent },
-		{ x: 0 * widthPercent, y: 66 * heightPercent },
-	],
-};
+	tweenTimeLineFrontend.add(
+		TweenLite.to('#cover-firebase-auth', 3, {
+			bezier: firebaseAuthScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
 
-const tweenTimeLineFrontend = new TimelineLite();
+	tweenTimeLineFrontend.add(
+		TweenLite.to('#cover-firebase-cloud-fns', 3, {
+			bezier: firebaseCloudFnsScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
 
-tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-amplify', 3, {
-		bezier: amplifyScrollPathDesktop,
-		ease: Power0.easeNone,
+	tweenTimeLineFrontend.add(
+		TweenLite.to('#cover-ADF', 3, {
+			bezier: awsCognitoScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
+
+	tweenTimeLineFrontend.add(
+		TweenLite.to('#cover-serverless', 3, {
+			bezier: serverlessScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
+
+	tweenTimeLineFrontend.add(
+		TweenLite.to('#cover-npm-package', 3, {
+			bezier: npmPackageScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
+
+	tweenTimeLineFrontend.add(
+		TweenLite.to('#cover-JS', 3, {
+			bezier: phpScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
+
+	/* MOBILE SUPPORT — ADDED — swap into the existing scene on a rebuild */
+	if (sceneFrontend) {
+		sceneFrontend.setTween(tweenTimeLineFrontend);
+		sceneFrontend.refresh();
+		return;
+	}
+
+	controllerFrontend = new ScrollMagic.Controller();
+	sceneFrontend = new ScrollMagic.Scene({
+		triggerElement: '.frontend',
+		duration: 1000,
+		triggerHook: '0',
 	})
-);
+		.setTween(tweenTimeLineFrontend)
+		.setPin('.frontend')
+		.addTo(controllerFrontend);
+};
 
-tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-react', 3, {
-		bezier: reactScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
+computeFrontendPaths();
+buildFrontendScene();
 
-tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-firebase-auth', 3, {
-		bezier: firebaseAuthScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
-
-tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-firebase-cloud-fns', 3, {
-		bezier: firebaseCloudFnsScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
-
-tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-ADF', 3, {
-		bezier: awsCognitoScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
-
-tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-serverless', 3, {
-		bezier: serverlessScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
-
-tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-npm-package', 3, {
-		bezier: npmPackageScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
-
-tweenTimeLineFrontend.add(
-	TweenLite.to('#cover-JS', 3, {
-		bezier: phpScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
-
-const controllerFrontend = new ScrollMagic.Controller();
-const sceneFrontend = new ScrollMagic.Scene({
-	triggerElement: '.frontend',
-	duration: 1000,
-	triggerHook: '0',
-})
-	.setTween(tweenTimeLineFrontend)
-	.setPin('.frontend')
-	.addTo(controllerFrontend);
+/* MOBILE SUPPORT — ADDED */
+if (window.HXRebuild) {
+	window.HXRebuild.register('frontend', () => {
+		computeFrontendPaths();
+		buildFrontendScene();
+	});
+}
 
 
 /* ========== FX MODE ========== */
