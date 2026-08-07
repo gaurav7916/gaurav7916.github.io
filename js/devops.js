@@ -1,6 +1,12 @@
-const tweenTimeLineDevOps = new TimelineLite();
+/* MOBILE SUPPORT — ADDED */
+let tweenTimeLineDevOps;
+let nodeScrollPathDesktop;
+let pythonScrollPathDesktop;
+let controllerDevOps;
+let sceneDevOps;
 
-const nodeScrollPathDesktop = {
+const computeDevOpsPaths = () => {
+	nodeScrollPathDesktop = {
 	curviness: 0.5,
 	autoRotate: true,
 	values: [
@@ -42,7 +48,7 @@ const nodeScrollPathDesktop = {
 	],
 };
 
-const pythonScrollPathDesktop = {
+	pythonScrollPathDesktop = {
 	curviness: 0.5,
 	autoRotate: false,
 	values: [
@@ -82,31 +88,62 @@ const pythonScrollPathDesktop = {
 			opacity: 0,
 		},
 	],
+	};
 };
 
-tweenTimeLineDevOps.add(
-	TweenLite.to('#server-node', 3, {
-		bezier: nodeScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
+const buildDevOpsScene = () => {
+	/* MOBILE SUPPORT — ADDED — see the note in js/frontend.js: keep the scene and
+	   its pin, rewind and replace only the timeline. */
+	const previousDevOps = tweenTimeLineDevOps;
+	if (sceneDevOps && previousDevOps) {
+		sceneDevOps.removeTween(true);
+		previousDevOps.kill();
+	}
 
-tweenTimeLineDevOps.add(
-	TweenLite.to('#server-python', 3, {
-		bezier: pythonScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
+	tweenTimeLineDevOps = new TimelineLite();
 
-const controllerDevOps = new ScrollMagic.Controller();
+	tweenTimeLineDevOps.add(
+		TweenLite.to('#server-node', 3, {
+			bezier: nodeScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
 
-const sceneDevOps = new ScrollMagic.Scene({
-	triggerElement: '.devops',
-	duration: 1000,
-	triggerHook: '0',
-})
-	.setTween(tweenTimeLineDevOps)
-	.setPin('.devops')
-	.addTo(controllerDevOps);
+	tweenTimeLineDevOps.add(
+		TweenLite.to('#server-python', 3, {
+			bezier: pythonScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
+
+	/* MOBILE SUPPORT — ADDED */
+	if (sceneDevOps) {
+		sceneDevOps.setTween(tweenTimeLineDevOps);
+		sceneDevOps.refresh();
+		return;
+	}
+
+	controllerDevOps = new ScrollMagic.Controller();
+
+	sceneDevOps = new ScrollMagic.Scene({
+		triggerElement: '.devops',
+		duration: 1000,
+		triggerHook: '0',
+	})
+		.setTween(tweenTimeLineDevOps)
+		.setPin('.devops')
+		.addTo(controllerDevOps);
+};
+
+computeDevOpsPaths();
+buildDevOpsScene();
+
+/* MOBILE SUPPORT — ADDED */
+if (window.HXRebuild) {
+	window.HXRebuild.register('devops', () => {
+		computeDevOpsPaths();
+		buildDevOpsScene();
+	});
+}
