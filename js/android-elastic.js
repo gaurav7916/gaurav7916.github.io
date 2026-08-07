@@ -1,91 +1,132 @@
-const androidScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [{ x: 20 * widthPercent, y: -25 * heightPercent }],
+/* MOBILE SUPPORT — ADDED */
+let androidScrollPathDesktop;
+let elasticScrollPathDesktop;
+let logstashScrollPathDesktop;
+let kibanaScrollPathDesktop;
+let tweenTimeLineAndroidElastic;
+let controllerAndroidElastic;
+let sceneAndroidElastic;
+
+const computeAndroidElasticPaths = () => {
+	androidScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [{ x: 20 * widthPercent, y: -25 * heightPercent }],
+	};
+
+	elasticScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [
+			{
+				y: -30 * heightPercent,
+				scale: 1,
+				opacity: 1,
+			},
+		],
+	};
+
+	logstashScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [
+			{
+				x: -15 * widthPercent,
+				y: 15 * heightPercent,
+				scale: 1,
+				opacity: 1,
+			},
+		],
+	};
+
+	kibanaScrollPathDesktop = {
+		curviness: 0,
+		autoRotate: false,
+		values: [
+			{
+				x: 15 * widthPercent,
+				y: 15 * heightPercent,
+				scale: 1,
+				opacity: 1,
+			},
+		],
+	};
 };
 
-const elasticScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [
-		{
-			y: -30 * heightPercent,
-			scale: 1,
-			opacity: 1,
-		},
-	],
+const buildAndroidElasticScene = () => {
+	/* MOBILE SUPPORT — ADDED — see the note in js/frontend.js: keep the scene and
+	   its pin, rewind and replace only the timeline. The rewind also returns
+	   .stack-logos to their CSS scale(0)/opacity:0 and #rotated-android to its
+	   CSS rotate(45deg), so the reveal replays correctly. */
+	const previousAndroidElastic = tweenTimeLineAndroidElastic;
+	if (sceneAndroidElastic && previousAndroidElastic) {
+		sceneAndroidElastic.removeTween(true);
+		previousAndroidElastic.kill();
+	}
+
+	tweenTimeLineAndroidElastic = new TimelineLite();
+
+	tweenTimeLineAndroidElastic.add(
+		TweenLite.to('#rotated-android', 3, {
+			bezier: androidScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		0
+	);
+
+	tweenTimeLineAndroidElastic.add(
+		TweenLite.to('#java', 3, {
+			bezier: elasticScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		3
+	);
+
+	tweenTimeLineAndroidElastic.add(
+		TweenLite.to('#javascript', 3, {
+			bezier: logstashScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		6
+	);
+
+	tweenTimeLineAndroidElastic.add(
+		TweenLite.to('#jet', 3, {
+			bezier: kibanaScrollPathDesktop,
+			ease: Power0.easeNone,
+		}),
+		9
+	);
+
+	/* MOBILE SUPPORT — ADDED */
+	if (sceneAndroidElastic) {
+		sceneAndroidElastic.setTween(tweenTimeLineAndroidElastic);
+		sceneAndroidElastic.refresh();
+		return;
+	}
+
+	controllerAndroidElastic = new ScrollMagic.Controller();
+
+	sceneAndroidElastic = new ScrollMagic.Scene({
+		triggerElement: '.android-elastic',
+		duration: 1000,
+		triggerHook: '0',
+	})
+		.setTween(tweenTimeLineAndroidElastic)
+		.setPin('.android-elastic')
+		.addTo(controllerAndroidElastic);
 };
 
-const logstashScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [
-		{
-			x: -15 * widthPercent,
-			y: 15 * heightPercent,
-			scale: 1,
-			opacity: 1,
-		},
-	],
-};
+computeAndroidElasticPaths();
+buildAndroidElasticScene();
 
-const kibanaScrollPathDesktop = {
-	curviness: 0,
-	autoRotate: false,
-	values: [
-		{
-			x: 15 * widthPercent,
-			y: 15 * heightPercent,
-			scale: 1,
-			opacity: 1,
-		},
-	],
-};
-
-const tweenTimeLineAndroidElastic = new TimelineLite();
-
-tweenTimeLineAndroidElastic.add(
-	TweenLite.to('#rotated-android', 3, {
-		bezier: androidScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	0
-);
-
-tweenTimeLineAndroidElastic.add(
-	TweenLite.to('#java', 3, {
-		bezier: elasticScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	3
-);
-
-tweenTimeLineAndroidElastic.add(
-	TweenLite.to('#javascript', 3, {
-		bezier: logstashScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	6
-);
-
-tweenTimeLineAndroidElastic.add(
-	TweenLite.to('#jet', 3, {
-		bezier: kibanaScrollPathDesktop,
-		ease: Power0.easeNone,
-	}),
-	9
-);
-
-const controllerAndroidElastic = new ScrollMagic.Controller();
-
-const sceneAndroidElastic = new ScrollMagic.Scene({
-	triggerElement: '.android-elastic',
-	duration: 1000,
-	triggerHook: '0',
-})
-	.setTween(tweenTimeLineAndroidElastic)
-	.setPin('.android-elastic')
-	.addTo(controllerAndroidElastic);
+/* MOBILE SUPPORT — ADDED */
+if (window.HXRebuild) {
+	window.HXRebuild.register('android-elastic', () => {
+		computeAndroidElasticPaths();
+		buildAndroidElasticScene();
+	});
+}
 
 
 // canvas neural network
