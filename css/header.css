@@ -101,11 +101,14 @@ header {
   gap: 200px; 
 }
 
+/* These now sit on the wrapper around the cut-out (see samurai-glass.css); the
+   width matches the 3:2 image so the box is exactly the old <img> box. */
 .img-samurai-animate {
     z-index: 2;
     /* border: 1px solid red; */
     position: absolute;
     height: 100vh;
+    width: 150vh;
     top: 0%;
     left: -30%;
 }
@@ -114,6 +117,7 @@ header {
     /* border: 1px solid blue; */
     position: absolute;
     height: 100vh;
+    width: 150vh;
     top: 0%;
     left: -30%;
     transform: translateX(20vw);
@@ -137,6 +141,93 @@ header {
     left: -12vw;
     display: none;
 }
+
+.samurai-glass {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.avatar-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.35))
+            drop-shadow(0 8px 25px rgba(20, 184, 166, 0));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.samurai-glass__glint {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    -webkit-mask-image: url('../img/general/gaurav.png');
+    mask-image: url('../img/general/gaurav.png');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transition: transform 0.3s ease;
+}
+
+/* the mask has to stay put, so the gradient slides inside it */
+.samurai-glass__glint::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg,
+                transparent 20%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 80%);
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+}
+
+/* the figure's bounding box within the PNG — the only hoverable region */
+.samurai-glass__hit {
+    position: absolute;
+    left: 34%;
+    right: 33%;
+    top: 28%;
+    bottom: 0;
+    pointer-events: auto;
+}
+
+/* --- one hover, everything fires --- */
+.samurai-glass:has(.samurai-glass__hit:hover) {
+    transform: translateY(-8px);
+}
+
+.samurai-glass:has(.samurai-glass__hit:hover) .samurai-glass__glint::before {
+    transform: translateX(100%);
+}
+
+.samurai-glass:has(.samurai-glass__hit:hover) .avatar-image,
+.samurai-glass:has(.samurai-glass__hit:hover) .samurai-glass__glint {
+    transform: scale(1.05);
+}
+
+.samurai-glass:has(.samurai-glass__hit:hover) .avatar-image {
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5))
+            drop-shadow(0 8px 25px rgba(20, 184, 166, 0.5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .samurai-glass,
+    .samurai-glass__glint,
+    .samurai-glass__glint::before,
+    .avatar-image {
+        transition: none;
+    }
+    .samurai-glass:has(.samurai-glass__hit:hover) {
+        transform: none;
+    }
+}
+
 
 #intro {
     text-align: end;
