@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/loader.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/header-extras.css">
+    <link rel="stylesheet" href="./css/samurai-glass.css">
     <link rel="stylesheet" href="./css/frontend.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/flower.css">
@@ -29,14 +30,23 @@
     </div>
 <header id="large-header">
     <canvas id="demo-canvas"></canvas>
-        <img id="img-samurai-animate" class="img-samurai-animate" src="./img/general/gaurav.png" usemap="#image-map" alt="Tech Samurai Image" />
-        <img id="img-samurai-scroll" class="img-samurai-scroll" src="./img/general/gaurav.png" usemap="#image-map" alt="Tech Samurai Image" />
+        <div id="img-samurai-animate" class="img-samurai-animate">
+            <div class="samurai-glass">
+                <img class="avatar-image" src="./img/general/gaurav.png" alt="Gaurav Gupta" usemap="#image-map"/>
+                <span class="samurai-glass__glint" aria-hidden="true"></span>
+                <span class="samurai-glass__hit" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div id="img-samurai-scroll" class="img-samurai-scroll">
+            <div class="samurai-glass">
+                <img class="avatar-image" src="./img/general/gaurav.png" alt="Gaurav Gupta" usemap="#image-map"/>
+                <span class="samurai-glass__glint" aria-hidden="true"></span>
+                <span class="samurai-glass__hit" aria-hidden="true"></span>
+            </div>
+        </div>
         <img id="img-plane-animate" class="img-plane-animate" src="./img/general/paperplane.png" alt="Paper Plane Image" />
         <img id="img-plane-scroll" class="img-plane-scroll" src="./img/general/paperplane.png" alt="Paper Plane Image" />
-
-        <!--
-    <p style="text-align:center;">Profile views : <img src="https://hitwebcounter.com/counter/counter.php?page=21437424&style=0006&nbdigits=4&type=ip&initCount=0" title="Counter Widget" Alt="Profile views" border="0" /></a> </p>
-        -->
+    
     <p style="text-align:center;" id="MyClockDisplay" class="clock" onload="showTime()"></p>
           
         <map name="image-map">
